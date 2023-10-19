@@ -3,6 +3,7 @@ package com.example.todolist.controller;
 import com.example.todolist.model.Notes;
 import com.example.todolist.service.NotesService;
 import com.example.todolist.service.NotesServiceInterface;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -14,9 +15,10 @@ import java.util.List;
 
 
 @RestController
+@RequiredArgsConstructor
 public class NotesController {
-    @Autowired
-    private NotesServiceInterface notesService;
+
+     private final NotesServiceInterface notesService;
     @GetMapping("/notes")
     ResponseEntity<List<Notes>>getAllNotes()
     {
